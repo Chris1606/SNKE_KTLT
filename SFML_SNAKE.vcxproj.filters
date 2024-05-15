@@ -45,6 +45,18 @@
     <ClInclude Include="Instruction.hpp">
       <Filter>Resource Files</Filter>
     </ClInclude>
+    <ClInclude Include="Difficulty.hpp">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="easyGamePlay.hpp">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mediumGamePlay.hpp">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="hardGamePlay.hpp">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="StateMan.cpp">
@@ -75,6 +87,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Instruction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Difficulty.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="easyGamePlay.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mediumGamePlay.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="hardGamePlay.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

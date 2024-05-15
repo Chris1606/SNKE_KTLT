@@ -2,6 +2,7 @@
 #include "SFML/Window/Event.hpp"
 #include "GamePlay.hpp"
 #include "MainMenu.hpp"
+#include "Difficulty.hpp"
 GameOver::GameOver(std::shared_ptr<Context>& context)
     :m_context(context), m_rePlayButtonSelected(true), m_rePlayButtonPressed(false),
     m_isExitButtonSelected(false), m_isExitButtonPressed(false), m_isMenuButtonSelected(false), m_isMenuButtonPressed(false)
@@ -125,7 +126,7 @@ void GameOver::Update(const sf::Time& deltaTime)
         //go to play state
        /* m_rePlayButton.setColor(sf::Color::Magenta);*/
 
-        m_context->m_states->Add(std::make_unique<GamePlay>(m_context), true);
+        m_context->m_states->Add(std::make_unique<Difficulty>(m_context), true);
     }
     else if (m_isExitButtonPressed) {
         /* m_exitButton.setColor(sf::Color::Magenta);*/

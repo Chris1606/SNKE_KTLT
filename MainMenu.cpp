@@ -1,5 +1,6 @@
 #include "MainMenu.hpp"
 #include "GamePlay.hpp"
+#include "Difficulty.hpp"
 #include <SFML/Window/Event.hpp>
 #include "Instruction.hpp"
 
@@ -46,21 +47,13 @@ void MainMenu::Init()
     m_instructionButton.setPosition(m_context->m_window->getSize().x / 2 - 25.f,
         m_context->m_window->getSize().y / 2);
     m_instructionButton.setCharacterSize(20);
-    //choose mode
-    m_difficultyButton.setFont(m_context->m_assets->GetFont(MAIN_FONT));
-    m_difficultyButton.setString("Difficulty");
-    m_difficultyButton.setOrigin(m_playButton.getLocalBounds().width / 2,
-        m_playButton.getLocalBounds().height / 2);
-    m_difficultyButton.setPosition(m_context->m_window->getSize().x / 2 - 25.f,
-        m_context->m_window->getSize().y / 2 + 30.f);
-    m_difficultyButton.setCharacterSize(20);
     //Exit
     m_exitButton.setFont(m_context->m_assets->GetFont(MAIN_FONT));
     m_exitButton.setString("Exit");
     m_exitButton.setOrigin(m_exitButton.getLocalBounds().width / 2,
         m_exitButton.getLocalBounds().height / 2);
     m_exitButton.setPosition(m_context->m_window->getSize().x / 2,
-        m_context->m_window->getSize().y / 2 + 60.f);
+        m_context->m_window->getSize().y / 2 + 30.f);
     m_exitButton.setCharacterSize(20);
 
 }
@@ -85,12 +78,8 @@ void MainMenu::ProcessInput()
                     m_isPlayButtonSelected = true;
                     m_isInstructionButtonSelected = false;
                 }
-                else if (m_isDifficultyButtonSelected) {
-                    m_isInstructionButtonSelected = true;
-                    m_isDifficultyButtonSelected = false;
-                }
                 else if (m_isExitButtonSelected) {
-                    m_isDifficultyButtonSelected = true;
+                    m_isInstructionButtonSelected = true;
                     m_isExitButtonSelected = false;
                 }
                 break;
@@ -100,12 +89,8 @@ void MainMenu::ProcessInput()
                     m_isPlayButtonSelected = false;
                 }
                 else if (m_isInstructionButtonSelected) {
-                    m_isDifficultyButtonSelected = true;
-                    m_isInstructionButtonSelected = false;
-                }
-                else if (m_isDifficultyButtonSelected) {
                     m_isExitButtonSelected = true;
-                    m_isDifficultyButtonSelected = false;
+                    m_isInstructionButtonSelected = false;
                 }
                 else if (m_isExitButtonSelected) {
                     m_isPlayButtonSelected = true;
@@ -116,7 +101,6 @@ void MainMenu::ProcessInput()
                 m_isPlayButtonPressed = m_isPlayButtonSelected;
                 m_isExitButtonPressed = m_isExitButtonSelected;
                 m_isInstructionButtonPressed = m_isInstructionButtonSelected;
-                m_isDifficultyButtonPressed = m_isDifficultyButtonSelected;
                 break;
             }
         }
@@ -146,7 +130,7 @@ void MainMenu::Update(const sf::Time& deltaTime)
     // Handle button press actions
     if (m_isPlayButtonPressed) {
         //go to play state
-        m_context->m_states->Add(std::make_unique<GamePlay>(m_context), true);
+        m_context->m_states->Add(std::make_unique<Difficulty>(m_context), true);
     }
     else if (m_isExitButtonPressed) {
         m_context->m_window->close();
@@ -155,9 +139,7 @@ void MainMenu::Update(const sf::Time& deltaTime)
         // Transition to instruction state
         m_context->m_states->Add(std::make_unique<Instruction>(m_context), true);
     }
-    else if (m_isDifficultyButtonPressed) {
-        // Transition to difficulty selection state
-    }
+
 }
 
 
@@ -168,6 +150,5 @@ void MainMenu::Draw()
     m_context->m_window->draw(m_playButton);
     m_context->m_window->draw(m_exitButton);
     m_context->m_window->draw(m_instructionButton);
-    m_context->m_window->draw(m_difficultyButton);
     m_context->m_window->display();
 }

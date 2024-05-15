@@ -20,11 +20,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetMan.hpp" />
+    <ClInclude Include="Difficulty.hpp" />
+    <ClInclude Include="easyGamePlay.hpp" />
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="GameOver.hpp" />
     <ClInclude Include="GamePlay.hpp" />
+    <ClInclude Include="hardGamePlay.hpp" />
     <ClInclude Include="Instruction.hpp" />
     <ClInclude Include="MainMenu.hpp" />
+    <ClInclude Include="mediumGamePlay.hpp" />
     <ClInclude Include="PauseGame.hpp" />
     <ClInclude Include="Snake.hpp" />
     <ClInclude Include="State.hpp" />
@@ -32,12 +36,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssetMan.cpp" />
+    <ClCompile Include="Difficulty.cpp" />
+    <ClCompile Include="easyGamePlay.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameOver.cpp" />
     <ClCompile Include="GamePlay.cpp" />
+    <ClCompile Include="hardGamePlay.cpp" />
     <ClCompile Include="Instruction.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
+    <ClCompile Include="mediumGamePlay.cpp" />
     <ClCompile Include="PauseGame.cpp" />
     <ClCompile Include="Snake.cpp" />
     <ClCompile Include="StateMan.cpp" />

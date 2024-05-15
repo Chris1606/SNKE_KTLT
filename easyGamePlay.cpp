@@ -1,4 +1,4 @@
-#include "GamePlay.hpp"
+#include "easyGamePlay.hpp"
 #include "GameOver.hpp"
 #include "PauseGame.hpp"
 #include <SFML/Window/Event.hpp>
@@ -6,7 +6,7 @@
 #include <time.h>
 
 
-GamePlay::GamePlay(std::shared_ptr<Context>& context)
+easyGamePlay::easyGamePlay(std::shared_ptr<Context>& context)
     : m_context(context),
     m_score(0),
     m_snakeDirection({ 16.f, 0.f }),
@@ -16,11 +16,11 @@ GamePlay::GamePlay(std::shared_ptr<Context>& context)
     srand(time(nullptr));
 }
 
-GamePlay::~GamePlay()
+easyGamePlay::~easyGamePlay()
 {
 }
 
-void GamePlay::Init()
+void easyGamePlay::Init()
 {
     m_context->m_assets->AddTexture(GRASS, "D:/2D-Snake-Game/assets/textures/grass.png", true);
 
@@ -57,7 +57,7 @@ void GamePlay::Init()
     m_scoreText.setCharacterSize(15);
 }
 
-void GamePlay::ProcessInput()
+void easyGamePlay::ProcessInput()
 {
     sf::Event event;
     while (m_context->m_window->pollEvent(event))
@@ -100,7 +100,7 @@ void GamePlay::ProcessInput()
     }
 }
 
-void GamePlay::Update(const sf::Time& deltaTime)
+void easyGamePlay::Update(const sf::Time& deltaTime)
 {
 
     if (!m_isPaused)
@@ -146,7 +146,7 @@ void GamePlay::Update(const sf::Time& deltaTime)
     }
 }
 
-void GamePlay::Draw()
+void easyGamePlay::Draw()
 {
     m_context->m_window->clear();
     m_context->m_window->draw(m_grass);
@@ -162,12 +162,12 @@ void GamePlay::Draw()
     m_context->m_window->display();
 }
 
-void GamePlay::Pause()
+void easyGamePlay::Pause()
 {
     m_isPaused = true;
 }
 
-void GamePlay::Start()
+void easyGamePlay::Start()
 {
     m_isPaused = false;
 }

@@ -1,4 +1,4 @@
-#include "GamePlay.hpp"
+#include "hardGamePlay.hpp"
 #include "GameOver.hpp"
 #include "PauseGame.hpp"
 #include <SFML/Window/Event.hpp>
@@ -6,7 +6,7 @@
 #include <time.h>
 
 
-GamePlay::GamePlay(std::shared_ptr<Context>& context)
+hardGamePlay::hardGamePlay(std::shared_ptr<Context>& context)
     : m_context(context),
     m_score(0),
     m_snakeDirection({ 16.f, 0.f }),
@@ -16,11 +16,11 @@ GamePlay::GamePlay(std::shared_ptr<Context>& context)
     srand(time(nullptr));
 }
 
-GamePlay::~GamePlay()
+hardGamePlay::~hardGamePlay()
 {
 }
 
-void GamePlay::Init()
+void hardGamePlay::Init()
 {
     m_context->m_assets->AddTexture(GRASS, "D:/2D-Snake-Game/assets/textures/grass.png", true);
 
@@ -57,7 +57,7 @@ void GamePlay::Init()
     m_scoreText.setCharacterSize(15);
 }
 
-void GamePlay::ProcessInput()
+void hardGamePlay::ProcessInput()
 {
     sf::Event event;
     while (m_context->m_window->pollEvent(event))
@@ -100,14 +100,14 @@ void GamePlay::ProcessInput()
     }
 }
 
-void GamePlay::Update(const sf::Time& deltaTime)
+void hardGamePlay::Update(const sf::Time& deltaTime)
 {
 
     if (!m_isPaused)
     {
         m_elapsedTime += deltaTime;
 
-        if (m_elapsedTime.asSeconds() > 0.1)
+        if (m_elapsedTime.asSeconds() > 0.001)
         {
             for (auto& wall : m_walls)
             {
@@ -146,7 +146,7 @@ void GamePlay::Update(const sf::Time& deltaTime)
     }
 }
 
-void GamePlay::Draw()
+void hardGamePlay::Draw()
 {
     m_context->m_window->clear();
     m_context->m_window->draw(m_grass);
@@ -162,12 +162,12 @@ void GamePlay::Draw()
     m_context->m_window->display();
 }
 
-void GamePlay::Pause()
+void hardGamePlay::Pause()
 {
     m_isPaused = true;
 }
 
-void GamePlay::Start()
+void hardGamePlay::Start()
 {
     m_isPaused = false;
 }
