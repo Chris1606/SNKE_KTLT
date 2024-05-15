@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 
 #include <memory>
 
@@ -17,12 +16,17 @@ private:
     //BUTTON to select in the GameOver
     sf::Text m_rePlayButton;
     sf::Text m_exitButton;
+    sf::Text m_MenuButton;
     //check replayButton
     bool m_rePlayButtonSelected;
     bool m_rePlayButtonPressed;
     //check exitButton
     bool m_isExitButtonSelected;
     bool m_isExitButtonPressed;
+
+    //back to Menu
+    bool m_isMenuButtonSelected;
+    bool m_isMenuButtonPressed;
 
 public:
     GameOver(std::shared_ptr<Context>& context);

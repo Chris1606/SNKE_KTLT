@@ -16,17 +16,22 @@ private:
     //BUTTON to select in the mainMenu
     sf::Text m_playButton;
     sf::Text m_exitButton;
-   
+    sf::Text m_instructionButton;
+    sf::Text m_difficultyButton;
     //check buttonPlay
     bool m_isPlayButtonSelected;
     bool m_isPlayButtonPressed;
 
     //choose Difficultty 
-    
+
     //check exitButton
     bool m_isExitButtonSelected;
     bool m_isExitButtonPressed;
 
+    bool m_isDifficultyButtonPressed;
+    bool m_isDifficultyButtonSelected;
+    bool m_isInstructionButtonPressed;
+    bool m_isInstructionButtonSelected;
 public:
     MainMenu(std::shared_ptr<Context>& context);
     ~MainMenu();

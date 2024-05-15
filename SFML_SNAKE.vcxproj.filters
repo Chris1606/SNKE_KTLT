@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="StateMan.hpp">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
     <ClInclude Include="State.hpp">
       <Filter>Resource Files</Filter>
     </ClInclude>
@@ -40,6 +37,12 @@
       <Filter>Resource Files</Filter>
     </ClInclude>
     <ClInclude Include="PauseGame.hpp">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StateMan.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Instruction.hpp">
       <Filter>Resource Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -69,6 +72,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PauseGame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Instruction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
